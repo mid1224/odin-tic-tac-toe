@@ -54,6 +54,10 @@ function chooseCell(a) {
         {
             announceWinner();
         }
+        else if (checkTie())
+        {
+            announceTie();
+        }
         else
         {
             switchPlayer();
@@ -95,12 +99,32 @@ function checkWinner()
     return false; //No winner yet
 }
 
+function checkTie()
+{
+    for (let i = 0; i < 9; i++)
+    {
+        if (gameBoard[i] === null)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 function announceWinner()
 {
     const winningPlayer = player1.isInTurn ? player1 : player2;
     winningPlayer.points++;
     console.log("Winner: " + winningPlayer.name);
     console.log(gameBoard);
+
+    resetGame();
+}
+
+function announceTie()
+{
+    console.log("Tie!");
 
     resetGame();
 }
