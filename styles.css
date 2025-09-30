@@ -1,0 +1,15 @@
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+
+    gap: 15px;
+}
+
+.cell-button {
+
+}
+
+#announcer {
+    margin-top: 20px;
+}

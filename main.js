@@ -73,6 +73,13 @@ function chooseCell(a) {
     }
 }
 
+const cellButtons = document.getElementsByClassName("cell-button");
+
+for (let i = 0; i < cellButtons.length; i++)
+{
+    cellButtons[i].addEventListener("click", () => chooseCell(i));
+}
+
 function checkWinner()
 {
     const winningCombinations = [
