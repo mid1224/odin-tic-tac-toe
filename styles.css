@@ -37,8 +37,6 @@ body {
     background: rgba(0,0,0,0.1);
 
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 345px;
-    height: 345px;
+    width: 330px;
+    height: 330px;
 }
