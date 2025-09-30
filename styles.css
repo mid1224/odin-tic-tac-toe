@@ -18,7 +18,14 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.game-over-screen {
+#new-game-button {
+    margin-top: 25px;
+    font-size: 25px;
+
+    padding: 4px 8px;
+}
+
+#game-over-screen {
     background: rgba(0,0,0,0.1);
 
     position: absolute;

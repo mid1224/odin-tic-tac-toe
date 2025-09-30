@@ -152,7 +152,7 @@ function stopGame(message)
     const gameBoardContainer = document.getElementById("game-board");
 
     const gameOverScreen = document.createElement("div");
-    gameOverScreen.classList.add("game-over-screen");
+    gameOverScreen.id = "game-over-screen";
 
     gameBoardContainer.append(gameOverScreen);
 
@@ -165,12 +165,20 @@ function announce(message)
     announcer.textContent = message;
 }
 
+const newGameButton = document.getElementById("new-game-button");
+newGameButton.addEventListener("click", (event) => resetGame());
+
 function resetGame()
 {
     for (let i = 0; i < 9; i++)
     {
         gameBoard[i] = null;
+        cellButtons[i].textContent = "";
     }
+
+    const gameOverScreen = document.getElementById("game-over-screen");
+    gameOverScreen.remove();
+
     player1.isInTurn = false;
     player2.isInTurn = false;
 
