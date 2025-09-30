@@ -7,9 +7,23 @@
 }
 
 .cell-button {
-
+    font-weight: bold;
+    font-size: 75px;
 }
 
 #announcer {
-    margin-top: 20px;
+    margin-top: 25px;
+    font-size: 30px;
+
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.game-over-screen {
+    background: rgba(0,0,0,0.1);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 345px;
+    height: 345px;
 }

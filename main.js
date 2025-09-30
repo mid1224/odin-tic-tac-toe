@@ -19,10 +19,14 @@ function chooseStartingPlayer() {
     if (randomNum < 0.5)
     {
         player1.isInTurn = true;
+
+        announce("Player 1 go first!");
     }
     else
     {
         player2.isInTurn = true;
+
+        announce("Player 2 go first!");
     }
 }
 
@@ -31,11 +35,15 @@ function switchPlayer() {
     {
         player1.isInTurn = false;
         player2.isInTurn = true;
+
+        announce("Player 2 turn!");
     }
     else
     {
         player1.isInTurn = true;
         player2.isInTurn = false;
+
+        announce("Player 1 turn!");
     }
 }
 
@@ -77,7 +85,10 @@ const cellButtons = document.getElementsByClassName("cell-button");
 
 for (let i = 0; i < cellButtons.length; i++)
 {
-    cellButtons[i].addEventListener("click", () => chooseCell(i));
+    cellButtons[i].addEventListener("click", (event) => {
+        chooseCell(i);
+        cellButtons[i].textContent = gameBoard[i];
+    });
 }
 
 function checkWinner()
@@ -126,14 +137,32 @@ function announceWinner()
     console.log("Winner: " + winningPlayer.name);
     console.log(gameBoard);
 
-    resetGame();
+    stopGame(winningPlayer.name + " wins!");
 }
 
 function announceTie()
 {
-    console.log("Tie!");
+    console.log("Tied!");
 
-    resetGame();
+    stopGame("Tied!");
+}
+
+function stopGame(message)
+{
+    const gameBoardContainer = document.getElementById("game-board");
+
+    const gameOverScreen = document.createElement("div");
+    gameOverScreen.classList.add("game-over-screen");
+
+    gameBoardContainer.append(gameOverScreen);
+
+    announce(message);
+}
+
+function announce(message)
+{
+    const announcer = document.getElementById("announcer")
+    announcer.textContent = message;
 }
 
 function resetGame()
